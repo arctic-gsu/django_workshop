@@ -4,10 +4,28 @@
 
 {% block content %}
 <h1>Chart Demo</h1>
-<p>
-    {{ chart }}
-</p>
+
 <div class="chart-container">
     <canvas id="chart"></canvas> <!-- Our chart entry point-->
+    <script>
+        const data = {
+            labels: {{ chart.get_chart_data.epi_date|safe }},
+            datasets: [
+                {
+                    label: 'Cases',
+                    data: {{ chart.get_chart_data.Cases|safe }},
+                },
+            ],
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+        };
+
+        const chart = new Chart(
+            document.getElementById('chart'),
+            config,
+        );
+    </script>
 </div>
 {% endblock %}
