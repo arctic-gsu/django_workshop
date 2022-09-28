@@ -8,5 +8,5 @@ class ChartView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["chart_data"] = Chart.objects.first()
+        context["chart"] = Chart.objects.first()
         return context

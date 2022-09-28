@@ -1,8 +1,13 @@
-<html>
-<body>
-<h1> Hello World!</h1>
+{% extends 'common/base.html' %}
+
+{% block title%}Chart Demo{% endblock %}
+
+{% block content %}
+<h1>Chart Demo</h1>
 <p>
-{{ chart_data }}
+    {{ chart }}
 </p>
-<body>
-</html>
+<div class="chart-container">
+    <canvas id="chart"></canvas> <!-- Our chart entry point-->
+</div>
+{% endblock %}
